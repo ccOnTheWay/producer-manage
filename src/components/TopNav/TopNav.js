@@ -5,7 +5,9 @@
 import React, { Component } from 'react';
 import userImg from '../images/img.jpg';
 
-
+const TopNavData = {
+    title : ["供应商管理","历史报价","设置商家",]
+}
 
 class TopNav extends Component{
     render(){
@@ -16,7 +18,9 @@ class TopNav extends Component{
                         <div className="nav toggle">
                             <a id="menu_toggle"><i className="fa fa-bars"></i></a>
                         </div>
-
+                        <div className="title">
+                            <h3>{this.props.titleNub}</h3>
+                        </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="">
                                 <a href="##" className="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -23,8 +23,24 @@ import React, { Component } from 'react';
 import Breadcrumbs from 'react-breadcrumbs';
 
 import Navigation from "../../components/Navgation/Navigation"
-import TopNav from "../../components/TopNav/TopNav"
+import TopNav from "../../components/TopNav/TopNav";
+
+//主页main
+import HomeMain from "../../views/HomeMain/HomeMain"
+
+//历史报价main
+import HistoryPrice from "../../views/HistoryPrice/HistoryPrice"
+
+//账户设置main
+import AdminSetting from "../../views/AdminSetting/AdminSetting"
+//
 class Full extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dropdownOpen: false
+        };
+    }
     render() {
         return (
             <div className="container body">
@@ -33,10 +49,16 @@ class Full extends Component {
                 <div className="main main_container">
                     <Navigation />
                     <TopNav />
+                    <HomeMain />
                 </div>
             </div>
         );
     }
+    componentDidMount(){
+       console.log("~~~~let go react ")
+
+    }
+
 }
 
 export default Full;
