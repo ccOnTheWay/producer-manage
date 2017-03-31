@@ -2,23 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import { Router, Route} from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory'
+import {  Route } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+// import createBrowserHistory from 'history/createBrowserHistory'
 
-const history = createBrowserHistory()
+// const history = createBrowserHistory()
 
-// Test
+// Test    <Route path="/" component={Test}/>
 import Test from "./components/Test/Test"
-
-//Full
-//import Full from "./containers/Full/Full"    <Route path="/home" component={Full}/>
-
-
+// Full
+import Full from "./containers/Full/Full"
 ReactDOM.render(
-    (<Router history={history}>
-        <Route path="/" component={Test}/>
+    (<BrowserRouter history={history}>
 
-    </Router> ), document.getElementById('root')
+        <Route path="/" component={Full}/>
+    </BrowserRouter> ), document.getElementById('root')
 );
 
 

@@ -1,21 +1,13 @@
 /**
  * Created by fengxicai on 3/31/2017.
  */
-import "../Common/vendors/font-awesome/css/font-awesome.min.css";
-import "../Common/vendors/nprogress/nprogress.css";
-import "../Common/vendors/iCheck/skins/flat/green.css";
-////bootstrap-progressbar -->
-import "../Common/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css";
-////JQVMap -->
-import "../Common/vendors/jqvmap/dist/jqvmap.min.css"
-////bootstrap-daterangepicker -->
-import "../Common/vendors/bootstrap-daterangepicker/daterangepicker.css";
 
-////Custom Theme Style -->
-import "../Common/build/css/custom.min.css";
+
+import userImg from '../images/img.jpg';
 import React, { Component } from 'react';
+import SlidebarMenu from "./Slidebar-menu"
 class Navigation extends Component {
-    reader(){
+    render(){
         return (
 
             <div className="navigation col-md-3 left_col">
@@ -29,7 +21,7 @@ class Navigation extends Component {
 
                     <div className="profile clearfix">
                         <div className="profile_pic">
-                            <img src="images/img.jpg" alt="..." className="img-circle profile_img" />
+                            <img src={userImg} alt="..." className="img-circle profile_img" />
                         </div>
                         <div className="profile_info">
                             <span>Welcome,</span>
@@ -40,8 +32,23 @@ class Navigation extends Component {
 
                     <br />
 
+                    <SlidebarMenu></SlidebarMenu>
 
 
+                    <div className="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span className="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span className="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span className="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span className="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
 
                 </div>
             </div>
