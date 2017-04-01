@@ -2,21 +2,28 @@
  * Created by fengxicai on 3/31/2017.
  */
 import React, { Component } from 'react';
+import Action from "../../tools/Action";
 class SlidebarMenu extends Component {
+
+    changeTopNav(nub){
+        console.log(nub)
+        Action.emit('changeTopNavTitle',nub)
+
+    }
     render(){
         return (
             <div id="sidebar-menu" className="main_menu_side hidden-print main_menu">
                 <div className="menu_section">
                     <h3>General</h3>
                     <ul className="nav side-menu">
-                        <li><a><i className="fa fa-home"></i> Home <span className="fa fa-chevron-down"></span></a>
+                        <li  onClick={()=>this.changeTopNav(0)}><a><i className="fa fa-home"></i> 主页 <span className="fa fa-chevron-down"></span></a>
                             <ul className="nav child_menu">
                                 <li><a href="index.html">Dashboard</a></li>
                                 <li><a href="index2.html">Dashboard2</a></li>
                                 <li><a href="index3.html">Dashboard3</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-edit"></i> Forms <span className="fa fa-chevron-down"></span></a>
+                        <li  onClick={()=>this.changeTopNav(1)}><a><i className="fa fa-edit"></i> 历史报价 <span className="fa fa-chevron-down"></span></a>
                             <ul className="nav child_menu">
                                 <li><a href="form.html">General Form</a></li>
                                 <li><a href="form_advanced.html">Advanced Components</a></li>
@@ -26,13 +33,13 @@ class SlidebarMenu extends Component {
                                 <li><a href="form_buttons.html">Form Buttons</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-desktop"></i> UI Elements <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-desktop"></i> 账户设置<span className="fa fa-chevron-down"></span></a>
                             <ul className="nav child_menu">
-                                <li><a href="general_elements.html">General Elements</a></li>
-                                <li><a href="media_gallery.html">Media Gallery</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="icons.html">Icons</a></li>
-                                <li><a href="glyphicons.html">Glyphicons</a></li>
+                                <li  onClick={()=>this.changeTopNav(2)}><a href="##">设置商家权重</a></li>
+                                <li  onClick={()=>this.changeTopNav(3)}><a href="##">商家详情</a></li>
+                                <li  onClick={()=>this.changeTopNav(4)}><a href="##">邀请卖家</a></li>
+                                <li ><a href="icons.html">注销</a></li>
+                                <li><a href="glyphicons.html">退出登录</a></li>
                                 <li><a href="widgets.html">Widgets</a></li>
                                 <li><a href="invoice.html">Invoice</a></li>
                                 <li><a href="inbox.html">Inbox</a></li>
@@ -84,7 +91,7 @@ class SlidebarMenu extends Component {
                                 <li><a href="pricing_tables.html">Pricing Tables</a></li>
                             </ul>
                         </li>
-                        
+
                         <li><a href=""><i className="fa fa-laptop"></i> Landing Page <span className="label label-success pull-right">Coming Soon</span></a></li>
                     </ul>
                 </div>
@@ -95,6 +102,7 @@ class SlidebarMenu extends Component {
 
     )
     }
+
 }
 
     export default SlidebarMenu;
