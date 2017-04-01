@@ -1,20 +1,11 @@
-/**
- * Created by fengxicai on 3/31/2017.
- */
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-route';
+import { BrowserRouter as Router,Link,Route } from 'react-router-dom';
 
 // Containers
-//import Full from './containers/Full/'
+import Index from "./containers/Index/Index"
 
-//Test
-import Test from "./components/Test/"
-
-export default (
-    <Router history={hashHistory}>
-        <Route path="/" name="Home" component={Test}>
-          
-        </Route>
-      
+export default ( 
+    <Router>
+        <Route path="/" component={Index}/>
     </Router>
 );
