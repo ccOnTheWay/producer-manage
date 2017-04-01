@@ -4,12 +4,19 @@
 
 import React, { Component } from 'react';
 import userImg from '../images/img.jpg';
-
+import "./TopNav.css";
+import Action from "../../tools/Action";
 const TopNavData = {
-    title : ["供应商管理","历史报价","设置商家",]
+    title : ["供应商管理","历史报价","设置商家权重","商家详情","邀请商家","搜索结果"]
 }
 
 class TopNav extends Component{
+     constructor(props){
+            super(props)
+            this.state = {
+                topNavTitleNub : 0
+            }
+        }
     render(){
         return(
             <div className="top_nav">
@@ -19,7 +26,7 @@ class TopNav extends Component{
                             <a id="menu_toggle"><i className="fa fa-bars"></i></a>
                         </div>
                         <div className="title">
-                            <h3>{this.props.titleNub}</h3>
+                            <h3>{TopNavData.title[this.state.topNavTitleNub]}</h3>
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="">
@@ -111,6 +118,13 @@ class TopNav extends Component{
 
     )
     }
+    componentWillMount (){
+        		Action.on('changeTopNavTitle',function(val){
+        			this.setState({
+        				topNavTitleNub : val
+        			})
+        		}.bind(this))
+        	}
 }
 
 
