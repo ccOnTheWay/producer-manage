@@ -4121,16 +4121,16 @@ if (typeof NProgress != 'undefined') {
 					name: 'rose6'
 				  }]
 				}]
-			  });
+			 });
 
-			} 
+			}
 			  
 			   //echart Donut
 			  
 			if ($('#echart_donut').length ){  
 			  
 			  var echartDonut = echarts.init(document.getElementById('echart_donut'), theme);
-			  
+
 			  echartDonut.setOption({
 				tooltip: {
 				  trigger: 'item',
