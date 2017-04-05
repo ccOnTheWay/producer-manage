@@ -1,11 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router,Link,Route } from 'react-router-dom';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // Containers
-import Index from "./containers/Index/Index"
+import Home from "./containers/Index/Index"
+import HomeMain from "./views/HomeMain/HomeMain"
+import HistoryPrice from "./views/HistoryPrice/HistoryPrice"
 
-export default ( 
-    <Router>
-        <Route path="/" component={Index}/>
-    </Router>
-);
+export default (
+  <Router history={hashHistory}>
+    <Route path="/" name="Home" component={Home}>
+        <IndexRoute component={HomeMain}/>
+        <Route path="dashboard" name="Dashboard" component={HomeMain}/>
+    </Route>
+  </Router>
+  );

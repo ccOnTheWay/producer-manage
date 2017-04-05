@@ -3,6 +3,9 @@
  */
 import React, { Component } from 'react';
 import Action from "../../tools/Action";
+import {
+  Link
+} from 'react-router'
 class SlidebarMenu extends Component {
 
     changeTopNav(nub){
@@ -18,19 +21,13 @@ class SlidebarMenu extends Component {
                     <ul className="nav side-menu">
                         <li  onClick={()=>this.changeTopNav(0)}><a><i className="fa fa-home"></i> 主页 <span className="fa fa-chevron-down"></span></a>
                             <ul className="nav child_menu">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><a href="index2.html">Dashboard2</a></li>
-                                <li><a href="index3.html">Dashboard3</a></li>
+                                <li><Link to="/">Dashboard</Link></li>
                             </ul>
                         </li>
                         <li  onClick={()=>this.changeTopNav(1)}><a><i className="fa fa-edit"></i> 历史报价 <span className="fa fa-chevron-down"></span></a>
                             <ul className="nav child_menu">
-                                <li><a href="form.html">General Form</a></li>
-                                <li><a href="form_advanced.html">Advanced Components</a></li>
-                                <li><a href="form_validation.html">Form Validation</a></li>
-                                <li><a href="form_wizards.html">Form Wizard</a></li>
-                                <li><a href="form_upload.html">Form Upload</a></li>
-                                <li><a href="form_buttons.html">Form Buttons</a></li>
+
+                                <li><Link to="/history">1</Link></li>
                             </ul>
                         </li>
                         <li><a><i className="fa fa-desktop"></i> 账户设置<span className="fa fa-chevron-down"></span></a>
