@@ -2,6 +2,7 @@
  * Created by fengxicai on 3/31/2017.
  */
 import React, { Component } from 'react';
+
 import AddProvider from "./AddProvider"
 import PieChart from "./Chart/PieChart"
 class HomeMain extends Component{
@@ -11,10 +12,10 @@ class HomeMain extends Component{
                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                      <AddProvider />
                      <PieChart />
+                    </div>
                 </div>
-                <div className=""></div>
-            </div>
-        )
-    }
-}
+              )
+                    }
+                    }
+
 export default HomeMain

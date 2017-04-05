@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router, hashHistory } from 'react-router';
 import routes from './routes';
-ReactDOM.render( <Router children={ routes }></Router>, document.getElementById('root'));
+
+ReactDOM.render( <
+    Router routes = { routes }
+    history = { hashHistory }
+    />, document.getElementById('root')
+);
