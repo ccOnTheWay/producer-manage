@@ -106,6 +106,9 @@ class PieChart extends Component{
 
         })
     }
+	componentWillMount(){
+
+	}
     render(){
         return (
            <div className="pieChart">

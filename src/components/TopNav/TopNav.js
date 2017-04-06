@@ -2,23 +2,24 @@
  * Created by fengxicai on 3/31/2017.
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import userImg from '../images/img.jpg';
 import "./TopNav.css";
 import Action from "../../tools/Action";
 const TopNavData = {
-    title : ["供应商管理","历史报价","设置商家权重","商家详情","邀请商家","搜索结果"]
+    title: ["供应商管理", "历史报价", "设置商家权重", "商家详情", "邀请商家", "搜索结果"]
 }
 
-class TopNav extends Component{
-     constructor(props){
-            super(props)
-            this.state = {
-                topNavTitleNub : 0
-            }
+class TopNav extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            topNavTitleNub: 0
         }
-    render(){
-        return(
+    }
+
+    render() {
+        return (
             <div className="top_nav">
                 <div className="nav_menu">
                     <nav>
@@ -30,9 +31,10 @@ class TopNav extends Component{
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="">
-                                <a href="##" className="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src={userImg} alt="" />John Doe
-                                        <span className="fa fa-angle-down"></span>
+                                <a href="##" className="user-profile dropdown-toggle" data-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src={userImg} alt=""/>John Doe
+                                    <span className="fa fa-angle-down"></span>
                                 </a>
                                 <ul className="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="##"> Profile</a></li>
@@ -43,19 +45,22 @@ class TopNav extends Component{
                                         </a>
                                     </li>
                                     <li><a href="##">Help</a></li>
-                                    <li><a href="login.html"><i className="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    <li><a href="login.html"><i className="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    </li>
                                 </ul>
                             </li>
 
                             <li role="presentation" className="dropdown">
-                                <a href="##" className="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <a href="##" className="dropdown-toggle info-number" data-toggle="dropdown"
+                                   aria-expanded="false">
                                     <i className="fa fa-envelope-o"></i>
                                     <span className="badge bg-green">6</span>
                                 </a>
                                 <ul id="menu1" className="dropdown-menu list-unstyled msg_list" role="menu">
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg"
+                                                                         alt="Profile Image"/></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -67,7 +72,8 @@ class TopNav extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg"
+                                                                         alt="Profile Image"/></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -79,7 +85,8 @@ class TopNav extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg"
+                                                                         alt="Profile Image"/></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -91,7 +98,8 @@ class TopNav extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg"
+                                                                         alt="Profile Image"/></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -116,17 +124,17 @@ class TopNav extends Component{
                 </div>
             </div>
 
-    )
+        )
     }
-    componentWillMount (){
-        		Action.on('changeTopNavTitle',function(val){
-        			this.setState({
-        				topNavTitleNub : val
-        			})
-        		}.bind(this))
-        	}
-}
 
+    componentWillMount() {
+        Action.on('changeTopNavTitle', function (val) {
+            this.setState({
+                topNavTitleNub: val
+            })
+        }.bind(this))
+    }
+}
 
 
 export default TopNav
