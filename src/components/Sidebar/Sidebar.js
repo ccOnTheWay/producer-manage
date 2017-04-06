@@ -3,7 +3,7 @@
  */
 
 
-import userImg from '../images/img.jpg';
+import userImg from '../../assets/img/img.jpg';
 import React, { Component } from 'react';
 import SlidebarMenu from "./Slidebar-menu"
 class Navigation extends Component {

@@ -3,14 +3,14 @@
  */
 
 import React, { Component } from 'react';
-import userImg from '../images/img.jpg';
-import "./TopNav.css";
-import Action from "../../tools/Action";
+import userImg from '../../assets/img/img.jpg';
+import "./Header.css";
+import Action from "../../assets/tools/Action";
 const TopNavData = {
     title : ["供应商管理","历史报价","设置商家权重","商家详情","邀请商家","搜索结果"]
 }
 
-class TopNav extends Component{
+class Header extends Component{
      constructor(props){
             super(props)
             this.state = {
@@ -129,4 +129,4 @@ class TopNav extends Component{
 
 
 
-export default TopNav
+export default Header

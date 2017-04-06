@@ -2,7 +2,7 @@
  * Created by fengxicai on 3/31/2017.
  */
 import React, { Component } from 'react';
-import Action from "../../tools/Action";
+import Action from "../../assets/tools/Action";
 import {
   Link
 } from 'react-router'
