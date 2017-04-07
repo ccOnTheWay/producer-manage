@@ -21,7 +21,7 @@ class SlidebarMenu extends Component {
                     <ul className="nav side-menu">
                         <li  onClick={()=>this.changeTopNav(0)}><Link to="/"><i className="fa fa-home"></i> 主页 </Link>
                         </li>
-                        <li  onClick={()=>this.changeTopNav(1)}><Link to="historical_quote"><i className="fa fa-edit"></i> 历史报价 </Link>
+                        <li  onClick={()=>this.changeTopNav(1)}><Link to="historical_quotation"><i className="fa fa-edit"></i> 历史报价 </Link>
                         </li>
                         <li><a><i className="fa fa-desktop"></i> 账户设置</a>
                             <ul className="nav child_menu">

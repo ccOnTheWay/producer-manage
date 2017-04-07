@@ -18,7 +18,7 @@ class Index extends Component {
           <div className="right_col" role="main">
               {this.props.children}
           </div>
-          <Footer></Footer>
+          <Footer />
         </div>
       </div>
     );
