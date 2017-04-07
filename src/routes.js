@@ -13,7 +13,7 @@ export default (
       {/**/}
       <IndexRoute component={Dashboard}/>
       <Route path="dashboard" name="Dashboard" component={Dashboard}/>
-      <Route path="historical_quote" name="historical_quote" component={HistoricalQuote}/>
+      <Route path="historical_quotation" name="historical_quotation" component={HistoricalQuotation}/>
       <Route path="delete_account" name="delete_account" component={DeleteAccount}/>
       <Route path="invite_oupplier" name="invite_oupplier" component={InviteSupplier}/>
       <Route path="log_out" name="log_out" component={LogOut}/>
