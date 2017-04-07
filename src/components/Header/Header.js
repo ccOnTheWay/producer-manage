@@ -55,7 +55,7 @@ class Header extends Component{
                                 <ul id="menu1" className="dropdown-menu list-unstyled msg_list" role="menu">
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg" alt="Profile" /></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -67,7 +67,7 @@ class Header extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg" alt="Profile" /></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -79,7 +79,7 @@ class Header extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg" alt="Profile" /></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>
@@ -91,7 +91,7 @@ class Header extends Component{
                                     </li>
                                     <li>
                                         <a>
-                                            <span className="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span className="image"><img src="images/img.jpg" alt="Profile" /></span>
                         <span>
                           <span>John Smith</span>
                           <span className="time">3 mins ago</span>

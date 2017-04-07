@@ -19,18 +19,11 @@ class SlidebarMenu extends Component {
                 <div className="menu_section">
                     <h3>General</h3>
                     <ul className="nav side-menu">
-                        <li  onClick={()=>this.changeTopNav(0)}><a><i className="fa fa-home"></i> 主页 <span className="fa fa-chevron-down"></span></a>
-                            <ul className="nav child_menu">
-                                <li><Link to="/">Dashboard</Link></li>
-                            </ul>
+                        <li  onClick={()=>this.changeTopNav(0)}><Link to="/"><i className="fa fa-home"></i> 主页 </Link>
                         </li>
-                        <li  onClick={()=>this.changeTopNav(1)}><a><i className="fa fa-edit"></i> 历史报价 <span className="fa fa-chevron-down"></span></a>
-                            <ul className="nav child_menu">
-
-                                <li><Link to="/history">1</Link></li>
-                            </ul>
+                        <li  onClick={()=>this.changeTopNav(1)}><Link to="historical_quote"><i className="fa fa-edit"></i> 历史报价 </Link>
                         </li>
-                        <li><a><i className="fa fa-desktop"></i> 账户设置<span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-desktop"></i> 账户设置</a>
                             <ul className="nav child_menu">
                                 <li  onClick={()=>this.changeTopNav(2)}><a href="##">设置商家权重</a></li>
                                 <li  onClick={()=>this.changeTopNav(3)}><a href="##">商家详情</a></li>
@@ -43,13 +36,13 @@ class SlidebarMenu extends Component {
                                 <li><a href="calendar.html">Calendar</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-table"></i> Tables <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-table"></i> Tables </a>
                             <ul className="nav child_menu">
                                 <li><a href="tables.html">Tables</a></li>
                                 <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-bar-chart-o"></i> Data Presentation <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-bar-chart-o"></i> Data Presentation </a>
                             <ul className="nav child_menu">
                                 <li><a href="chartjs.html">Chart JS</a></li>
                                 <li><a href="chartjs2.html">Chart JS2</a></li>
@@ -58,7 +51,7 @@ class SlidebarMenu extends Component {
                                 <li><a href="other_charts.html">Other Charts</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-clone"></i>Layouts <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-clone"></i>Layouts </a>
                             <ul className="nav child_menu">
                                 <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
                                 <li><a href="fixed_footer.html">Fixed Footer</a></li>
@@ -69,7 +62,7 @@ class SlidebarMenu extends Component {
                 <div className="menu_section">
                     <h3>Live On</h3>
                     <ul className="nav side-menu">
-                        <li><a><i className="fa fa-bug"></i> Additional Pages <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-bug"></i> Additional Pages </a>
                             <ul className="nav child_menu">
                                 <li><a href="e_commerce.html">E-commerce</a></li>
                                 <li><a href="projects.html">Projects</a></li>
@@ -78,7 +71,7 @@ class SlidebarMenu extends Component {
                                 <li><a href="profile.html">Profile</a></li>
                             </ul>
                         </li>
-                        <li><a><i className="fa fa-windows"></i> Extras <span className="fa fa-chevron-down"></span></a>
+                        <li><a><i className="fa fa-windows"></i> Extras </a>
                             <ul className="nav child_menu">
                                 <li><a href="page_403.html">403 Error</a></li>
                                 <li><a href="page_404.html">404 Error</a></li>

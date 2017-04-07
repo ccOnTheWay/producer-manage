@@ -6,6 +6,7 @@ import "../../assets/vendors/build/css/custom.min.css";
 //
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Footer from '../../components/Footer/Footer';
 
 class Index extends Component {
   render() {
@@ -17,6 +18,7 @@ class Index extends Component {
           <div className="right_col" role="main">
               {this.props.children}
           </div>
+          <Footer></Footer>
         </div>
       </div>
     );
