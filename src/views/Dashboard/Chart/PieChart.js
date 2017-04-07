@@ -5,107 +5,97 @@ import React, { Component } from 'react';
 //import AddProvider from "./AddProvider"
 import ReactEcharts from "echarts-for-react";
 
-const pieChartData = [
-                        {"name":"A类商家","value":335},
-                        {"name":"B类商家","value":635},
-                        {"name":"C类商家","value":135},
-                        {"name":"D类商家","value":35},
-                        {"name":"E类商家","value":195}
-                     ]
-
-const pieChartOption = {
-                     				tooltip: {
-                     				  trigger: 'item',
-                     				  formatter: "{a} <br/>{b} : {c} ({d}%)"
-                     				},
-                     				calculable: true,
-                     				legend: {
-                     				  x: 'center',
-                     				  y: 'bottom',
-                     				  data: ['一级供应商', '二级供应商', '三级供应商', '四级供应商']
-                     				},
-                     				toolbox: {
-                     				  show: true,
-                     				  feature: {
-                     					magicType: {
-                     					  show: true,
-                     					  type: ['pie', 'funnel'],
-                     					  option: {
-                     						funnel: {
-                     						  x: '25%',
-                     						  width: '50%',
-                     						  funnelAlign: 'center',
-                     						  max: 1548
-                     						}
-                     					  }
-                     					},
-                     					restore: {
-                     					  show: true,
-                     					  title: "Restore"
-                     					},
-                     					saveAsImage: {
-                     					  show: true,
-                     					  title: "Save Image"
-                     					}
-                     				  }
-                     				},
-                     				series: [{
-                     				  name: 'Access to the resource',
-                     				  type: 'pie',
-                     				  radius: ['35%', '55%'],
-                     				  itemStyle: {
-                     					normal: {
-                     					  label: {
-                     						show: true
-                     					  },
-                     					  labelLine: {
-                     						show: true
-                     					  }
-                     					},
-                     					emphasis: {
-                     					  label: {
-                     						show: true,
-                     						position: 'center',
-                     						textStyle: {
-                     						  fontSize: '14',
-                     						  fontWeight: 'normal'
-                     						}
-                     					  }
-                     					}
-                     				  },
-                     				  data: [{
-                     					value: 335,
-                     					name: '一级供应商'
-                     				  }, {
-                     					value: 310,
-                     					name: '二级供应商'
-                     				  }, {
-                     					value: 234,
-                     					name: '三级供应商'
-                     				  }, {
-                     					value: 135,
-                     					name: '四级供应商'
-                     				  }]
-                     				}]
-                     			  }
-
- //var echartDonut = echarts.init(document.getElementById('echart_donut'), theme);
-
-// echartDonut.setOption();
-
 
 class PieChart extends Component{
     constructor(props){
                 super(props)
                 this.state = {
-                    pieChartOption : pieChartOption
+                    pieChartOption : this.getOption(this.initData(this.props.pieChartData))
                 }
-            }
-    initData (data){
-        data.map((ele,i)=>{
 
+            }
+	//初始化数据
+    initData (data){
+        var dataName = []
+		data.map((ele,i)=>{
+			dataName.push(ele.name)
         })
+		var chartData = {dataName:dataName,data:data}
+		return chartData;
     }
+	//chart option 配置项
+	getOption(chartData) {
+		console.log(chartData)
+	var option = {
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		calculable: true,
+		legend: {
+			x: 'center',
+			y: 'bottom',
+			data: chartData.dataName
+		},
+		toolbox: {
+			show: true,
+			feature: {
+				magicType: {
+					show: true,
+					type: ['pie', 'funnel'],
+					option: {
+						funnel: {
+							x: '25%',
+							width: '50%',
+							funnelAlign: 'center',
+							max: 1548
+						}
+					}
+				},
+				restore: {
+					show: true,
+					title: "Restore"
+				},
+				saveAsImage: {
+					show: true,
+					title: "Save Image"
+				}
+			}
+		},
+		series: [{
+			name: '供应商占比',
+			type: 'pie',
+			radius: ['35%', '55%'],
+			itemStyle: {
+				normal: {
+					label: {
+						show: true
+					},
+					labelLine: {
+						show: true
+					}
+				},
+				emphasis: {
+					label: {
+						show: true,
+						position: 'center',
+						textStyle: {
+							fontSize: '14',
+							fontWeight: 'normal'
+						}
+					}
+				}
+			},
+			data:chartData.data
+		}]
+	}
+	return option;
+    }
+	componentWillMount(){
+		// this.setState({
+		// 	pieChartOption : this.getOtion()
+		// })
+	}
     render(){
         return (
            <div className="pieChart">
