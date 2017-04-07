@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 //import AddProvider from "./AddProvider"
 
-class HistoryPrice extends Component{
+class HistoricalQuote extends Component{
     componentDidMount(){
 
     }
@@ -154,4 +154,4 @@ class HistoryPrice extends Component{
         )
     }
 }
-export default HistoryPrice
+export default HistoricalQuote
