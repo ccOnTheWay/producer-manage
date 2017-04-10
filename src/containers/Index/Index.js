@@ -1,5 +1,5 @@
 // common assets
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "../../assets/vendors/font-awesome/css/font-awesome.min.css";
 import "../../assets/vendors/build/css/custom.min.css";
@@ -13,12 +13,12 @@ class Index extends Component {
     return (
       <div className="container body">
         <div className="main_container">
-          <Sidebar />
-          <Header />
+          <Sidebar/>
+          <Header/>
           <div className="right_col" role="main">
-              {this.props.children}
+            {this.props.children}
           </div>
-          <Footer />
+          <Footer/>
         </div>
       </div>
     );
