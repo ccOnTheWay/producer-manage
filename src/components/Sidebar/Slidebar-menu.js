@@ -17,7 +17,6 @@ class SlidebarMenu extends Component {
         return (
             <div id="sidebar-menu" className="main_menu_side hidden-print main_menu">
                 <div className="menu_section">
-                    <h3>General</h3>
                     <ul className="nav side-menu">
                         <li  onClick={()=>this.changeTopNav(0)}><Link to="/"><i className="fa fa-home"></i> 主页 </Link>
                         </li>
