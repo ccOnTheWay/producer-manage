@@ -185,9 +185,9 @@ $(document).ready(function() {
 // /Tooltip
 
 // Progressbar
-if ($(".progress .progress-bar")[0]) {
+/*if ($(".progress .progress-bar")[0]) {
     $('.progress .progress-bar').progressbar();
-}
+}*/
 // /Progressbar
 
 // Switchery
@@ -3088,7 +3088,7 @@ if (typeof NProgress != 'undefined') {
 					text: 'Administration',
 					max: 16000
 				  }, {
-					text: 'Information Techology',
+					text: 'ProviderInformation Techology',
 					max: 30000
 				  }, {
 					text: 'Customer Support',
@@ -3201,7 +3201,7 @@ if (typeof NProgress != 'undefined') {
 				  }
 				},
 				series: [{
-				  name: 'Performance',
+				  name: 'ProviderPerformance',
 				  type: 'gauge',
 				  center: ['50%', '50%'],
 				  startAngle: 140,
@@ -3290,7 +3290,7 @@ if (typeof NProgress != 'undefined') {
 				  },
 				  data: [{
 					value: 50,
-					name: 'Performance'
+					name: 'ProviderPerformance'
 				  }]
 				}]
 			  });

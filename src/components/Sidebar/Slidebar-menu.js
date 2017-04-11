@@ -26,7 +26,7 @@ class SlidebarMenu extends Component {
                         <li><a><i className="fa fa-desktop"></i> 账户设置</a></li>
                         <li><a><i className="fa fa-table"></i> Tables </a></li>
                         <li><a><i className="fa fa-bar-chart-o"></i> Data Presentation </a></li>
-                        <li><a><i className="fa fa-clone"></i>Layouts </a></li>
+                        <li><Link to="manufacture_info"><i className="fa fa-clone"></i>商家详情</Link></li>
                     </ul>
                 </div>
             </div>
