@@ -26,14 +26,24 @@ class Header extends Component{
                   <a id="menu_toggle"><i className="fa fa-bars"></i></a>
                 </div>
                 <div className="title">
-                  <h3>{TopNavData.title[this.state.topNavTitleNub]}</h3>
+                  <h3 className="page-name">{TopNavData.title[this.state.topNavTitleNub]}</h3>
                 </div>
-                <ul className="nav navbar-nav navbar-right">
 
+                <ul className="nav navbar-nav navbar-right">
+                  <div className="col-md-5 col-sm-5 col-xs-12 form-group pull-right nav_top_search">
+                    <div className="input-group">
+                      <input type="text" className="form-control" placeholder="已管理厂家搜索" />
+                      <span className="input-group-btn">
+                        <button className="btn btn-default" type="button">搜索</button>
+                      </span>
+                    </div>
+                  </div>
                 </ul>
               </nav>
             </div>
           </div>
+
+
           )
     }
     componentWillMount (){
