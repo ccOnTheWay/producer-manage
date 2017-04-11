@@ -8,16 +8,9 @@ import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
 import Tabel from "../../../components/Tabel/Tabel"
 
-var tradeData = [{"序号":"1","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"2","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"3","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"4","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"5","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"6","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"},
-    {"序号":"7","产品编号":"STM32F334C8T6","产品类型":"电阻","订单编号":"12989888","订单状态":"已提交订单"}
-]
 
 //<br />STMicroelectronic<br />LQFP-48 工业级<br />210400230011r IC MCU 32BIT 64KB FLASH 48LQFP
+
 class TradeMsg extends Component{
     constructor(props){
         super(props)
@@ -42,10 +35,10 @@ class TradeMsg extends Component{
                 <div className="x_content">
                     <div className="tradeMsg-left col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     {/*交易总额占比*/}
-                        <GaugeChart />
+                        <GaugeChart TradeMsgChart={this.props.tradeData.tradeMsgChart}/>
                     </div>
                     <div className="tradeMsg-right col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                    <Tabel tabelItem={tradeData}/>
+                    <Tabel tabelItem={this.props.tradeData.tradeList}/>
                     </div>
                 </div>
             </div>
@@ -61,15 +54,16 @@ class TradeMsg extends Component{
 class GaugeChart extends Component{
     constructor(props){
         super(props)
+        console.log(this.props.TradeMsgChart)
         this.state = {
-            pieChartOption : this.getOption()
+            pieChartOption : this.getOption(this.props.TradeMsgChart)
         }
 
     }
     getOption(chartData) {
         var option =  {
             "title":{
-                text: '该商家历史交易总额：100万元'
+                text: '该商家历史交易总额：' +  chartData.totalSum  + '万元'
             },
             "toolbox": {
                 "show": false,
@@ -95,7 +89,7 @@ class GaugeChart extends Component{
                 "axisLine": {
                     "lineStyle": {
                         "width": 50, //柱子的宽度
-                        "color": [[0.15, "#2d99e2"], [1, "#dce3ec"]] //0.298是百分比的比例值（小数），还有对应两个颜色值
+                        "color": [[ (chartData.recentMonthSUm/chartData.totalSum).toFixed(2), "#2d99e2"], [1, "#dce3ec"]] //0.298是百分比的比例值（小数），还有对应两个颜色值
                     }
                 },
                 "axisTick": {
@@ -126,8 +120,8 @@ class GaugeChart extends Component{
                     "show": false
                 },
                 "data": [{ //显示数据
-                    "value":15,
-                    "name": "近一个月总占额比15%（15）万元"
+                    "value":((chartData.recentMonthSUm/chartData.totalSum)*100).toFixed(2),
+                    "name": "近一个月总占额比 " +((chartData.recentMonthSUm/chartData.totalSum)*100).toFixed(2) +"%（" + chartData.recentMonthSUm +"）万元"
                 }]
             }]
         };
@@ -139,7 +133,7 @@ class GaugeChart extends Component{
             <div className="GaugeChart">
 
                 <ReactEcharts ref='echarts_react'
-                              option={this.getOption()}
+                              option={this.state.pieChartOption}
                               style={{height: 350}} />
 
             </div>
