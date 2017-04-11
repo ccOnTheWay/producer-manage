@@ -9,6 +9,8 @@ import ProviderSupplyLimits from "./ProviderSupplyLimits/ProviderSupplyLimits"
 
 import ProviderAptitude from "./ProviderAptitude/ProviderAptitude"
 
+import ProviderInformation from  "./ProviderInformation/ProviderInformation"
+
 class ManufactureInfo extends Component{
     render(){
         return (
@@ -31,7 +33,7 @@ class ManufactureInfo extends Component{
                             <ProviderPerformance />
                         </div>
                         <div role="tabpanel"  className="tab-pane fade" id="manufactureInfo_content2" aria-labelledby="profile-tab">
-                            表格
+                            <ProviderInformation></ProviderInformation>
                         </div>
                         <div role="tabpanel" className="tab-pane fade" id="manufactureInfo_content3" aria-labelledby="profile-tab">
                             <ProviderAptitude />
