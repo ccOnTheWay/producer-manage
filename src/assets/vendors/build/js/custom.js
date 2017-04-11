@@ -3088,7 +3088,7 @@ if (typeof NProgress != 'undefined') {
 					text: 'Administration',
 					max: 16000
 				  }, {
-					text: 'Information Techology',
+					text: 'ProviderInformation Techology',
 					max: 30000
 				  }, {
 					text: 'Customer Support',

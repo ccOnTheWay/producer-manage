@@ -1,0 +1,17 @@
+.Grade .productsName{
+    font-size: 24px;
+    line-height: 40px;
+}
+.Grade{
+    font-size:16px;
+}
+.Grade .gradeNub b{
+    padding-right : 10px;
+}
+.Grade  .progressRule{
+    line-height: 40px;
+    text-align: right;
+    margin-top:-20px;
+    padding-right:20%;
+    font-size:12px;
+}
