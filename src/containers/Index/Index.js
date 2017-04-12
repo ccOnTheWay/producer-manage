@@ -1,6 +1,7 @@
 // common assets
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+
 import "../../assets/vendors/font-awesome/css/font-awesome.min.css";
 import "../../assets/vendors/build/css/custom.min.css";
 //
