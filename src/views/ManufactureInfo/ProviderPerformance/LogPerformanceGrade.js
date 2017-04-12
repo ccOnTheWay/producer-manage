@@ -90,8 +90,7 @@ class LogPerformanceGrade extends Component{
         )
     }
     componentDidMount(){
-        this.refs.barChart.setAttribute("addAttr","111111")
-        console.log(this.refs.barChart.getAttribute("addAttr"))
+      
 
     }
 }

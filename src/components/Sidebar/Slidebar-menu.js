@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import Action from "../../assets/tools/Action";
+import Modals from "../Modals/Modals"
 import {
   Link
 } from 'react-router'
@@ -26,6 +27,12 @@ class SlidebarMenu extends Component {
                         <li><a><i className="fa fa-table"></i> Tables </a></li>
                         <li><a><i className="fa fa-bar-chart-o"></i> Data Presentation </a></li>
                         <li><Link to="manufacture_info"><i className="fa fa-clone"></i>商家详情</Link></li>
+                        <li><Link to="invite_supplier"><i className="fa fa-clone"></i>邀请供应商</Link></li>
+                        <li><a data-toggle="modal" data-target=".logout"><i className="fa fa-close"></i>注销  </a>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" data-target=".quit"><i className="fa fa-sign-out"></i>退出  </a>
+                        </li>
                     </ul>
                 </div>
             </div>

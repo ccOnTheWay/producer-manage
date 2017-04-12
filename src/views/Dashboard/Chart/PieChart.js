@@ -25,7 +25,7 @@ class PieChart extends Component{
     }
 	//chart option 配置项
 	getOption(chartData) {
-		console.log(chartData)
+		
 	var option = {
 		tooltip: {
 			trigger: 'item',
@@ -132,8 +132,7 @@ class PieChart extends Component{
         )
     }
     componentDidMount(){
-            console.log(this.refs.echart_donut)
-           console.log("~~~~let go react ")
+
 
 
           //var   echartDonut = echarts.init(this.refs.echart_donut, theme);

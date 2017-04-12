@@ -6,6 +6,8 @@ import Index from "./containers/Index/Index"
 //views
 import Dashboard from "./views/Dashboard/Dashboard"
 import HistoricalQuotation from "./views/HistoricalQuotation/HistoricalQuotation"
+
+import InviteSupplier from "./views/InviteSupplier/InviteSupplier"
 /*import DeleteAccount from "./views/DeleteAccount/DeleteAccount"
 import InviteSupplier from "./views/InviteSupplier/InviteSupplier"
 import LogOut from "./views/LogOut/LogOut"
@@ -23,6 +25,8 @@ export default(
       <Route path="historical_quotation" name="historical_quotation" component={HistoricalQuotation}/>
 
         <Route path="manufacture_info" name="manufacture_info" component={ManufactureInfo}/>
+
+        <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
       {/*<Route path="delete_account" name="delete_account" component={DeleteAccount}/>
       <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
       <Route path="log_out" name="log_out" component={LogOut}/>
