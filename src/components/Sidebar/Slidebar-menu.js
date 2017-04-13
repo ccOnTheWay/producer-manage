@@ -10,7 +10,7 @@ import {
 class SlidebarMenu extends Component {
 
     changeTopNav(nub){
-        console.log(nub)
+
         Action.emit('changeTopNavTitle',nub)
 
     }
@@ -24,8 +24,10 @@ class SlidebarMenu extends Component {
                         <li  onClick={()=>this.changeTopNav(1)}><Link to="historical_quotation"><i className="fa fa-edit"></i> 历史报价 </Link>
                         </li>
                         <li><a><i className="fa fa-desktop"></i> 账户设置</a></li>
-                        <li><a><i className="fa fa-table"></i> Tables </a></li>
-                        <li><a><i className="fa fa-bar-chart-o"></i> Data Presentation </a></li>
+                        <li><Link  to="supplier_list"><i className="fa fa-table"></i> 供应商列表 </Link></li>
+                        <li><Link to="search"><i className="fa fa-bar-chart-o"></i> 供应商筛选 </Link></li>
+
+                        <li><Link to="priority_level"><i className="fa fa-clone"></i>设置商家权重</Link></li>
                         <li><Link to="manufacture_info"><i className="fa fa-clone"></i>商家详情</Link></li>
                         <li><Link to="invite_supplier"><i className="fa fa-clone"></i>邀请供应商</Link></li>
                         <li><a data-toggle="modal" data-target=".logout"><i className="fa fa-close"></i>注销  </a>

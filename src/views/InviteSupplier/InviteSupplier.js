@@ -1,9 +1,6 @@
 /*
 * 邀请供应商
 * */
-/**
- * Created by fengxicai on 3/31/2017.
- */
 import React, {Component} from 'react';
 
 class InviteSupplier extends Component {
