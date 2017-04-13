@@ -52,12 +52,12 @@ class SupplierList extends Component {
   }
 
   componentWillMount(){
-    console.log(this);
+
     var data = this.state.data;
 
     for (var i = 0; i < 59; i++) {
       data.push({
-        supID:+ faker.random.number(),
+        supID: faker.random.number(),
         supName:faker.name.findName(),
         contact:faker.name.findName(),
         status:faker.name.findName(),
