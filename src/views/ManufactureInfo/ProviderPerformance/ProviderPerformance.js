@@ -53,13 +53,35 @@ const productsData = {
     ]
 }
 
-//当前绩效得分
+//当前绩效得分  --- 数据在NowPerformanceGrade.js
 import  NowPerformanceGrade from "./NowPerformanceGrade"
-const nowPerformanceGradeData = [
-    {"项目":"表现（0-1）","价格优势":"0.20","价格波动":"0","供货覆盖率":"0","询价响应时间":"0.20","成单率":"0.90"},
-    {"项目":"权重","价格优势":"0.20","价格波动":"0","供货覆盖率":"0","询价响应时间":"0.20","成单率":"0.90"},
-    {"项目":"得分=表现*权重","价格优势":"2","价格波动":"","供货覆盖率":"0","询价响应时间":"0.20","成单率":"0.90"},
-];
+/*
+*
+*  { manifestation : { //表现
+ priceAdvantage : 0.6 , //价格优势
+ priceWave : 0.5 , //价格波动
+ coverScale : 0.3 , //供货覆盖率
+ enquiryTime : 0.8 , //询价相应时间
+ successScale : 0.6 , //成单率
+ refuseScale : 0.9 , //拒单率
+ AOGinTimeScale : 0.9 , //到货及时率
+ AOGcomplainScale : 0.9, //到货不及时投诉率
+ qualityComplainScale : 0.9 , //质量投诉率
+ serverGoodScale : 0.6 //服务好评率
+ },
+ weight : { //权重
+ priceAdvantage : 5 ,
+ priceWave : 5 ,
+ coverScale : 5 ,
+ enquiryTime : 15 ,
+ successScale :10 ,
+ refuseScale :5 ,
+ AOGinTimeScale : 10 ,
+ AOGcomplainScale : 15,
+ qualityComplainScale : 10 ,
+ serverGoodScale :5
+ }}
+* */
 
 
 //交易信息
@@ -67,15 +89,23 @@ import TradeMsg from "./TradeMsg"
 
 
 //交易信息：
-var tradeData = {tradeList: [
-    // {nub ; 1 , productsNumber ："STM32F334C8T6" , productsClass : "电阻" ， orderNumber : "12989888" , orderState : 0/1 }
-    {"序号": "1", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "2", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "3", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "4", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "5", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "6", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"},
-    {"序号": "7", "产品编号": "STM32F334C8T6", "产品类型": "电阻", "订单编号": "12989888", "订单状态": "已提交订单"}]
+var tradeData = {tradeList:
+   /*
+    {
+    serialNub: i, //序号
+    productNub: faker.random.number(), // 产品编号
+    productType:faker.name.findName(),  //产品类型
+    orderNub: faker.random.number(),//订单编号
+    orderPrice:faker.random.number(),  //订单单价（元）
+    orderDate:faker.date.weekday()//订单日期
+    }
+   * */
+    [{"serialNub":0,"productNub":47465,"vendor":92906,"productType":"Domenica Bosco","orderNub":82028,"orderPrice":64596,"orderDate":"Tuesday"},
+        {"serialNub":1,"productNub":43858,"vendor":99849,"productType":"Mose Lang","orderNub":21119,"orderPrice":77689,"orderDate":"Tuesday"},
+        {"serialNub":2,"productNub":91498,"vendor":25880,"productType":"Amani Jacobi","orderNub":94131,"orderPrice":14896,"orderDate":"Monday"},
+        {"serialNub":3,"productNub":85813,"vendor":86140,"productType":"Lue Rippin","orderNub":85927,"orderPrice":35454,"orderDate":"Tuesday"},
+        {"serialNub":4,"productNub":26064,"vendor":35969,"productType":"Ivy Pacocha","orderNub":36004,"orderPrice":94990,"orderDate":"Thursday"},
+        {"serialNub":5,"productNub":34127,"vendor":60837,"productType":"Norberto Murray","orderNub":78405,"orderPrice":30240,"orderDate":"Friday"}]
 ,tradeMsgChart:{                 //交易信息图表数据
         totalSum : 200 ,         //历史交易总额
         recentMonthSUm : 55     //最近一个月总额
@@ -107,7 +137,7 @@ class ProviderPerformance extends Component{
                 </div>
 
                 {/*当前绩效得分*/}
-                <NowPerformanceGrade nowGradeTableData={nowPerformanceGradeData} />
+                <NowPerformanceGrade />
                 {/*交易信息*/}
                 <TradeMsg tradeData={tradeData} />
             </div>

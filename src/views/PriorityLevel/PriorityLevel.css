@@ -1,0 +1,33 @@
+.PriorityLevel th,.PriorityLevel td{
+    text-align: center;
+}
+.adjustBox{
+    position:relative;
+}
+.PriorityLevel .adjustGrade{
+    position:absolute;
+    left:65%;
+    font-size: 20px;
+    top:2%;
+}
+.PriorityLevel .adjustGrade .up,.PriorityLevel .adjustGrade .down{
+    width:20px;
+    height:20px;
+    line-height: 20px;
+
+}
+
+.PriorityLevel .adjustGrade .fa{
+    font-size: 20px;
+}
+.adjustGrade .down{
+    margint-top:-12px;
+}
+.PriorityLevel .adjustGrade .down .fa{
+    position: relative;
+    top:-10px;
+}
+.PriorityLevel .x_title .btn{
+    margin: 0 20px;
+    width:140px;
+}

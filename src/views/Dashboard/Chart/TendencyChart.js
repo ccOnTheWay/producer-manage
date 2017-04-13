@@ -44,7 +44,7 @@ class TendencyChart extends Component{
     }
     //chart option 配置项
     getOption(chartData) {
-        console.log(chartData)
+        
         var option =  {
             tooltip: {
                 trigger: 'axis',
@@ -91,7 +91,7 @@ class TendencyChart extends Component{
         return option
     }
     render(){
-        console.log(this.state.chartOption)
+
         return (
 
             <div className="x_content">

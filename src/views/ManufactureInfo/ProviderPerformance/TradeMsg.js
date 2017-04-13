@@ -38,7 +38,7 @@ class TradeMsg extends Component{
                         <GaugeChart TradeMsgChart={this.props.tradeData.tradeMsgChart}/>
                     </div>
                     <div className="tradeMsg-right col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                    <Tabel tabelItem={this.props.tradeData.tradeList}/>
+                        <TradeMsgTab></TradeMsgTab>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,6 @@ class TradeMsg extends Component{
 class GaugeChart extends Component{
     constructor(props){
         super(props)
-        console.log(this.props.TradeMsgChart)
         this.state = {
             pieChartOption : this.getOption(this.props.TradeMsgChart)
         }
@@ -142,6 +141,100 @@ class GaugeChart extends Component{
     
 }
 
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+import faker from 'faker';
 
+
+
+
+
+
+
+
+
+class TradeMsgTab extends Component {
+    constructor(props){
+        super(props)
+        this.state = ({
+            styles : {
+            primary:{
+                textAlign:'center'
+            }
+            },
+            columns : [
+                {
+                    header: '序号',
+                    accessor: 'serialNub'
+                }, {
+                    header: '产品编号',
+                    accessor: "productNub"
+                }, {
+                    header: '产品类型',
+                    accessor: 'productType'
+                }, {
+                    header: '订单编号',
+                    accessor: 'orderNub'
+                }, {
+                    header: '订单单价（元）',
+                    accessor: 'orderPrice'
+                }, {
+                    header: '订单日期',
+                    accessor: 'orderDate'
+                }
+            ],
+            TradeMsgTabData:[]
+        })
+
+    }
+    componentWillMount(){
+        /*
+        * {
+         serialNub: i, //序号
+         productNub: faker.random.number(), // 产品编号
+         productType:faker.name.findName(),  //产品类型
+         orderNub: faker.random.number(),//订单编号
+         orderPrice:faker.random.number(),  //订单单价（元）
+         orderDate:faker.date.weekday()//订单日期
+         }
+        *
+        *
+        *
+        * */
+        var data = [];
+        for (var i = 0; i < 20; i++) {
+            data.push({
+                serialNub: i,
+                productNub: faker.random.number(),
+                vendor: faker.random.number(),
+                productType:faker.name.findName(),
+                orderNub: faker.random.number(),
+                orderPrice:faker.random.number(),
+                orderDate:faker.date.weekday()
+            })
+        }
+        this.setState({
+            TradeMsgTabData : data
+        })
+    }
+    render() {
+        return (
+                <ReactTable
+                    className="dataTables_wrapper table table-bordered"
+                    data={this.state.TradeMsgTabData}
+                    columns={this.state.columns}
+                    defaultPageSize={10}
+                    nextText={'下一页'}
+                    previousText={'上一页'}
+                    loadingText={'正在加载'}
+                    noDataText={'没有下一页'}
+                    pageText={'页码'}
+                    ofText={'共'}
+                    rowsText={'条每行'}
+                    style={this.state.styles.primary}
+                />
+        )
+    }
+}
 
 export default TradeMsg

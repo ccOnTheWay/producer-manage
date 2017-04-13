@@ -27,7 +27,7 @@ class BarChart extends Component{
     }
     //chart option 配置项
     getOption(chartData) {
-        console.log(chartData)
+      
         var option = {
             title: {
                 text: '供应商数量（数量/位）',
@@ -118,8 +118,7 @@ class BarChart extends Component{
         )
     }
     componentDidMount(){
-        this.refs.barChart.setAttribute("addAttr","111111")
-        console.log(this.refs.barChart.getAttribute("addAttr"))
+
 
     }
 }

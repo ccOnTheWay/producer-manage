@@ -9,6 +9,8 @@ import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Footer from '../../components/Footer/Footer';
 
+import LogOut from "../../views/LogOut/LogOut"
+
 class Index extends Component {
   render() {
     return (
@@ -21,8 +23,17 @@ class Index extends Component {
           </div>
           <Footer/>
         </div>
+        <LogOut title="注销" class="logout" modalClick={this.logOut} />
+        <LogOut title="退出" class="quit" modalClick={this.quit} />
       </div>
+
     );
+  }
+  logOut(){
+    location.href = "https://www.cissdata.com/user/login "
+  }
+  quit(){
+    location.href = "https://www.cissdata.com/ "
   }
 }
 
