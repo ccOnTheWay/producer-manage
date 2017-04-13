@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "array.prototype.findindex": "^2.0.2",
     "bootstrap": "^3.3.7",
     "echarts-for-react": "^1.2.0",
     "fixed-data-table": "^0.6.3",
