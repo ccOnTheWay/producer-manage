@@ -5,7 +5,7 @@ class Footer extends Component {
     return (
       <footer>
         <div className="pull-right">
-          Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        @2016 赛思 京ICP备16042660号-3
         </div>
         <div className="clearfix"></div>
       </footer>

@@ -62,13 +62,14 @@ class Search extends Component {
         "线缆和光缆",
         "温控元器件"
       ],
-      eleComID:0
+
     }
   }
 
   changeTable (index){
     let data=[];
-    console.log(this.state.eleComID);
+    
+
     for (var i=0; i < 59; i++) {
       data.push({
         supID: '1',
@@ -106,12 +107,7 @@ class Search extends Component {
     })
   }
 
-  getInitialState() {
-    return {
-      eleComID: false
-    };
 
-  }
 
   render() {
     const items = this.state.eleComponentsCls;
