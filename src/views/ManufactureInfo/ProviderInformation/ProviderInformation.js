@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 
 import "./ProviderInformation.css"
 
+import 'whatwg-fetch';
 
 
 
@@ -47,6 +48,64 @@ class ProviderInformation extends Component{
         }
     }
     componentWillMount(){
+        /*var result = fetch('https://api.github.com',{mode: 'no-cors'})
+        result.then(function(response) {
+            console.log('response', response)
+            console.log('header', response.headers.get('Content-Type'))
+
+            return response.text()
+        }).then(function(text) {
+            console.log('got text', text)
+        }).catch(function(ex) {
+            console.log('failed', ex)
+        })*/
+        var result = fetch('http://op.juhe.cn/onebox/weather/query?cityname=%E6%B8%A9%E5%B7%9E&key=988133220d8fd9b30d81cf6ae1d8b4b2',{method:"GET", mode: 'cors',
+            cache: 'default'})
+        result.then(function(response) {
+            console.log('response', response)
+            console.log('header', response.headers.get('Content-Type'))
+            return response.text()
+        }).then(function(text) {
+            console.log('got text', text)
+        }).catch(function(ex) {
+            console.log('failed', ex)
+        })
+        //084272c282f092f2ee16282d05a554b2ss
+        // fetch("https://api.github.com/",{
+        //    method: "GET",
+        //     mode: 'no-cors',
+        //    /* body: JSON.stringify(
+        //              {"key":"084272c282f092f2ee16282d05a554b2",
+        //             "page":2,
+        //             "pagesize":10,
+        //             "sort":"asc",
+        //             "time": 1418745237}),*/
+        //   /*  headers: {
+        //        "Content-Type": "application/json"
+        //     }*/
+        //     //credentials: "same-origin"
+        // }).then(function(res) {
+        //     // res instanceof Response == true.
+        //     console.log(res)
+        //     if (res.type === 'opaque' || res.ok) {
+        //         res.json().then(function(data) {
+        //             console.log(data.entries);
+        //         });
+        //     } else {
+        //         console.log("Looks like the response wasn't perfect, got status", res.status);
+        //     }
+        // }, function(e) {
+        //     console.log("Fetch failed!", e);
+        // });
+           /* .then(function(response) {
+            return response.text().then(function(text) {
+                return text ? JSON.parse(text) : {}
+            })
+        }).then(function(json) {
+            console.log(json)
+        }).catch(function(ex) {
+            console.log('parsing failed', ex)
+        })*/
         this.setState(
             {
                 probiderMsg: {

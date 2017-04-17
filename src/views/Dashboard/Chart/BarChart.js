@@ -8,21 +8,23 @@ import ReactEcharts from "echarts-for-react";
 
 class BarChart extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             barChartOption : this.getOption(this.initData(this.props.barChartData))
         }
     }
     //初始化数据
     initData (data){
-        var dataName = []
-        var dataValue = []
+        var dataColor = ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a"];
+        var dataName = [];
+        var dataValue = [];
         data.map((ele,i)=>{
             dataName.push(ele.name);
-            // 随机颜色?------------------------------😪
-            dataValue.push({value : ele.value, itemStyle : {normal:{color: "rgb("  + Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) +"," +   Math.floor(Math.random() * 255) + ")"}}})
+            // 随机颜色?-----------------------------Math.floor(Math.random() * 255) + "," +  Math.floor(Math.random() * 255) +"," +   Math.floor(Math.random() * 255)-😪
+
+            dataValue.push({value : ele.value, itemStyle : {normal:{color:  dataColor[i] }}})
         })
-        var chartData = {dataName:dataName,dataValue:dataValue}
+        var chartData = {dataName:dataName,dataValue:dataValue};
         return chartData;
     }
     //chart option 配置项
@@ -30,7 +32,7 @@ class BarChart extends Component{
       
         var option = {
             title: {
-                text: '供应商数量（数量/位）',
+                text: '供应商数量（数量/位）'
                 //子标题
                 //subtext: 'From ExcelHome'
                 //  sublink: 'http://e.weibo.com/1341556070/AjQH99che'
@@ -104,7 +106,7 @@ class BarChart extends Component{
         return option
     }
     barchartClick(e){
-        console.log(e.target)
+        //console.log(e.target)
       //  alert(1111)
     }
     render(){
