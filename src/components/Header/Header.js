@@ -7,7 +7,7 @@ import userImg from '../../assets/img/img.jpg';
 import "./Header.css";
 import Action from "../../assets/tools/Action";
 const TopNavData = {
-    title : ["供应商管理","历史报价","供应商列表","供应商筛选","设置商家权重","邀请供应商"]
+    title : ["供应商管理","历史报价","供应商列表","供应商筛选","设置商家权重","商家详情","邀请供应商"]
 }
 
 class Header extends Component{
