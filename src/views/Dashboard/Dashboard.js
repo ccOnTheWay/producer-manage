@@ -71,7 +71,7 @@ var hotChartData = [
     {name: '重庆',value:111 },
     {name: '河北',value:111 },
     {name: '河南',value:66 },
-    {name: '云南',value:2006 },
+    {name: '云南',value:300 },
     {name: '辽宁',value:66 },
     {name: '黑龙江',value:66 },
     {name: '湖南',value:66 },

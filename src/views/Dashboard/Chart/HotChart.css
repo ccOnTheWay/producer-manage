@@ -1,0 +1,13 @@
+.hotChart{
+
+}
+.hotChart .cityRank .w_left{
+    width:12%;
+    overflow: hidden;
+}
+.hotChart .cityRank .w_center {
+    width:20%
+}
+.hotChart .cityRank .count{
+ display: none;
+}
