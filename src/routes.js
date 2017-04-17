@@ -23,20 +23,13 @@ import Search from "./views/Search/Search"
 export default(
   <Router history={hashHistory}>
     <Route path="/" name="Home" component={Index}>
-
       <IndexRoute component={Dashboard}/>
       <Route path="dashboard" name="Dashboard" component={Dashboard}/>
       <Route path="historical_quotation" name="historical_quotation" component={HistoricalQuotation}/>
-
-        <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
-
+      <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
       <Route path="manufacture_info" name="manufacture_info" component={ManufactureInfo}/>
       <Route path="supplier_list" name="supplier_list" component={SupplierList}/>
       <Route path="priority_level" name="priority_level" component={PriorityLevel}/>
-      {/*<Route path="delete_account" name="delete_account" component={DeleteAccount}/>
-      <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
-      <Route path="log_out" name="log_out" component={LogOut}/>
-      */}
       <Route path="search" name="search" component={Search}/>
     </Route>
   </Router>

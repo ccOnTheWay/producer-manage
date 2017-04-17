@@ -1,62 +1,37 @@
 import React, {Component} from 'react';
-import ReactTable from 'react-table';
-import 'react-table/react-table.css';
-import '../../../src/assets/css/table.css'
+// import ReactTable from 'react-table';
+// import 'react-table/react-table.css';
+// import '../../../src/assets/css/table.css'
 import faker from 'faker';
-import {Modal, Button, Tooltip, Popover} from 'react-bootstrap';
-import { getStates, matchStateToTerm, sortStates, styles } from './utils';
-import Autocomplete from 'react-autocomplete';
+import ReactToastr from "react-toastr";
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css"
+// import {Modal, Button, Tooltip, Popover} from 'react-bootstrap';
+// import { getStates, matchStateToTerm, sortStates, styles } from './utils';
+// import Autocomplete from 'react-autocomplete';
+
+
+
+
+
 class SupplierList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data:[],
-      showModal:false,
-      columns : [
-          {
-            header: '序号',
-            accessor: 'supID',
-            render: row => (
-              <input type="checkbox" value=""/>
-            )
-          }, {
-            header: '供应商名称',
-            accessor: 'supName'
-          },
-          {
-            header: '联系人',
-            accessor: 'contact'
-          },
-          {
-            header: '联系方式',
-            accessor: 'status'
-          },
-          {
-            header: '等级',
-            accessor: 'level'
-          },
-          {
-            header: '供货范围',
-            accessor: 'scope'
-          },
-          {
-            header: '生产地',
-            accessor: 'yieldly'
-          },
-          {
-            header: '状态',
-            accessor: 'status'
-          }
-      ]
+      prducers:[]
     }
-  }
 
+    this.options ={
+      defaultSortName: 'supName',  // default sort column supID
+      defaultSortOrder: 'desc'  // default sort order
+    };
+  }
   componentWillMount(){
 
-    var data = this.state.data;
+    var prducers = this.state.prducers;
 
     for (var i = 0; i < 59; i++) {
-      data.push({
+      prducers.push({
         supID: faker.random.number(),
         supName:faker.name.findName(),
         contact:faker.name.findName(),
@@ -69,91 +44,26 @@ class SupplierList extends Component {
     }
 
     this.setState({
-      data:data
+      prducers:prducers
     })
   }
-  getInitialState() {
-    return {
-      showModal: false ,
-       value: 'Ma'
-    };
-
-  }
-
-  close =()=> {
-    this.setState({ showModal: false });
-  }
-
-  open =()=> {
-    this.setState({ showModal: true });
-  }
-
   render(){
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-      </Popover>
-    );
+    return(
+      <div className="col-md-12">
 
-
-    return (
-      <div>
-
-      <div className="dataTables_wrapper">
-        <Button
-          bsStyle="primary"
-          onClick={this.open}
-        >
-          添加
-        </Button>
-        <Button>
-          删除
-        </Button>
-
-
-        <ReactTable
-          data={this.state.data}
-          columns={this.state.columns}
-          defaultPageSize={10}
-          nextText={'下一页'}
-          previousText={'上一页'}
-          loadingText={'正在加载'}
-          noDataText={'没有下一页'}
-          pageText={'页码'}
-          ofText={'共'}
-          rowsText={'条每行'}
-        />
-
-
+        <div className="datatable_wrapper">
+          <BootstrapTable data={ this.state.prducers } pagination options={ this.options }>
+            <TableHeaderColumn dataField="supID" isKey  dataSort>选择</TableHeaderColumn>
+            <TableHeaderColumn dataField="supName"  dataSort>供应商名称</TableHeaderColumn>
+            <TableHeaderColumn dataField="contact">联系人</TableHeaderColumn>
+            <TableHeaderColumn dataField="status">联系方式</TableHeaderColumn>
+            <TableHeaderColumn dataField="level">等级</TableHeaderColumn>
+            <TableHeaderColumn dataField="scope">供货范围</TableHeaderColumn>
+            <TableHeaderColumn dataField="yieldly">生产地</TableHeaderColumn>
+            <TableHeaderColumn dataField="status">状态</TableHeaderColumn>
+          </BootstrapTable>
+        </div>
       </div>
-      <Modal  show={this.state.showModal} onHide={this.close}>
-        <Modal.Header closeButton>
-            <Modal.Title>请输入供应商名称</Modal.Title>
-          </Modal.Header>
-        <Modal.Body style={{height:"250px"}}>
-          <Autocomplete
-            value={this.state.value}
-            inputProps={{name: "US state", id: "states-autocomplete"}}
-            items={getStates()}
-            getItemValue={(item) => item.name}
-            shouldItemRender={matchStateToTerm}
-            sortItems={sortStates}
-            onChange={(event, value) => this.setState({ value })}
-            onSelect={value => this.setState({ value })}
-            renderItem={(item, isHighlighted) => (
-              <div
-                style={isHighlighted ? styles.highlightedItem : styles.item}
-                key={item.abbr}
-              >{item.name}</div>
-            )}
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={this.close} bsStyle="primary">确定</Button>
-          <Button onClick={this.close}>关闭</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
     )
   }
 }
