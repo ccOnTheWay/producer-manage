@@ -9,10 +9,12 @@
     "react": "^15.4.2",
     "react-autocomplete": "^1.4.2",
     "react-bootstrap": "^0.30.8",
+    "react-bootstrap-table": "^3.1.8",
     "react-breadcrumbs": "^1.5.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
-    "react-table": "^5.5.0"
+    "react-table": "^5.5.0",
+    "react-toastr": "^2.8.2"
   },
   "devDependencies": {
     "faker": "^4.1.0",
