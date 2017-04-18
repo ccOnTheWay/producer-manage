@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-// import ReactTable from 'react-table';
-// import 'react-table/react-table.css';
-// import '../../../src/assets/css/table.css'
 import faker from 'faker';
 import {Button} from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
@@ -23,47 +20,22 @@ class SupplierList extends Component {
   }
 
   onRowSelect(row, isSelected, e) {
-    // let rowStr = '';
-    // for (const prop in row) {
-    //   rowStr += prop + ': "' + row[prop] + '"';
-    // }
-    // console.log(row.supID);
-    // console.log(isSelected);
     let selectedRow = this.state.selectedRow.slice();
     if (isSelected) {
       selectedRow.push(row.supID)
     } else {
-      // console.log(selectedRow.indexOf(row.supID));
       selectedRow.splice(selectedRow.indexOf(row.supID), 1)
     }
     this.setState({selectedRow: selectedRow})
-
-    // console.log(e);
-    // console.log(row);
-
-    // alert(`is selected: ${isSelected}, ${rowStr}`);
   }
 
-  onSelectAll(isSelected, rows) {
-    // alert(`is select all: ${isSelected}`);
-    // if (isSelected) {
-    //   alert('Current display and selected data: ');
-    // } else {
-    //   alert('unselect rows: ');
-    // }
-    // for (let i = 0; i < rows.length; i++) {
-    //   alert(rows[i].id);
-    // }
-  }
 
   deleteRow() {
     let producers = this.state.producers;
     for (var i = 0; i < this.state.selectedRow.length; i++) {
       for (var j = 0; j < this.state.producers.length; j++) {
         if (this.state.producers[j].supID === this.state.selectedRow[i]) {
-          // producers = producers.splice(producers.indexOf(this.state.producers[j]), 1)
           producers.splice(producers.indexOf(this.state.producers[j]), 1);
-          // console.log(producers.indexOf(this.state.producers[j]));
         }
       }
     }
