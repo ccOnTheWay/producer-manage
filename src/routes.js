@@ -27,7 +27,7 @@ export default(
       <Route path="dashboard" name="Dashboard" component={Dashboard}/>
       <Route path="historical_quotation" name="historical_quotation" component={HistoricalQuotation}/>
       <Route path="invite_supplier" name="invite_supplier" component={InviteSupplier}/>
-      <Route path="manufacture_info" name="manufacture_info" component={ManufactureInfo}/>
+      <Route path="manufacture_info/:id" name="manufacture_info" component={ManufactureInfo}/>
       <Route path="supplier_list" name="supplier_list" component={SupplierList}/>
       <Route path="priority_level" name="priority_level" component={PriorityLevel}/>
       <Route path="search/:searchItem" name="search" component={Search}/>

@@ -77,7 +77,7 @@ import faker from 'faker';
           pageText={'页码'}
           ofText={'共'}
           rowsText={'条每行'}
-          showFilters={true}
+          
         />
       )
     }

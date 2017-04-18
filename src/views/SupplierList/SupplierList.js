@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import faker from 'faker';
 import {Button} from 'react-bootstrap';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import {BootstrapTable, TableHeaderColumn, DeleteButton, InsertButton,InsertModalFooter} from 'react-bootstrap-table';
 import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css"
 import "./main.css"
+
+
 
 class SupplierList extends Component {
   constructor(props) {
@@ -13,36 +15,58 @@ class SupplierList extends Component {
       selectRowProp: {},
       selectedRow: []
     }
+
+    this.onAfterDeleteRow = (rowKeys) => {
+      alert('The rowkey you drop: ' + rowKeys);
+    }
+
+    this.customConfirm = (next, dropRowKeys) => {
+      const dropRowKeysStr = dropRowKeys.join(',');
+      if (confirm(`确认删除本条记录吗?`)) {
+        next();
+      }
+    }
+
+    this.createCustomDeleteButton = (onClick) => {
+      return (
+        <DeleteButton btnText='删除'/>
+      );
+    }
+
+    this.createCustomInsertButton = (onClick) => {
+      return (
+        <InsertButton
+          btnText='添加'
+        />
+      );
+    }
+
+    this.createCustomModalFooter = (closeModal, save) => {
+      return (
+        <InsertModalFooter
+          className='my-custom-class'
+          saveBtnText='保存'
+          closeBtnText='取消'/>
+      );
+    }
+
+    this.onRowClick = (row) => {
+      let href = "#/manufacture_info/" + row.supID;
+      // window.location.href = "";
+      window.location.href = href;
+    }
     this.options = {
-      defaultSortName: 'supName', // default sort column supID
-      defaultSortOrder: 'desc' // default sort order
+      defaultSortName: 'supName',
+      defaultSortOrder: 'desc',
+      deleteBtn: this.createCustomDeleteButton,
+      handleConfirmDeleteRow: this.customConfirm,
+      afterDeleteRow:this.onAfterDeleteRow,
+      insertBtn: this.createCustomInsertButton,
+      insertModalFooter: this.createCustomModalFooter,
+      onRowClick: this.onRowClick
     };
   }
 
-  onRowSelect(row, isSelected, e) {
-    let selectedRow = this.state.selectedRow.slice();
-    if (isSelected) {
-      selectedRow.push(row.supID)
-    } else {
-      selectedRow.splice(selectedRow.indexOf(row.supID), 1)
-    }
-    this.setState({selectedRow: selectedRow})
-  }
-
-
-  deleteRow() {
-    let producers = this.state.producers;
-    for (var i = 0; i < this.state.selectedRow.length; i++) {
-      for (var j = 0; j < this.state.producers.length; j++) {
-        if (this.state.producers[j].supID === this.state.selectedRow[i]) {
-          producers.splice(producers.indexOf(this.state.producers[j]), 1);
-        }
-      }
-    }
-    this.setState({
-      producers:producers
-    })
-  }
 
   componentWillMount() {
     var producers = this.state.producers;
@@ -63,9 +87,7 @@ class SupplierList extends Component {
       producers: producers,
       selectRowProp: {
         mode: 'checkbox',
-        clickToSelect: true,
-        onSelect: (row, isSelected, e) => this.onRowSelect(row, isSelected, e),
-        onSelectAll: this.onSelectAll
+        // onSelect: (row, isSelected, e) => this.onRowSelect(row, isSelected, e)
       }
     })
   }
@@ -74,15 +96,9 @@ class SupplierList extends Component {
       <div className="col-md-12">
 
         <div className="datatable_wrapper">
-          <div className="row">
-            <div className="col-md-12">
-              <Button bsStyle="primary">添加</Button>
-              <Button bsStyle="default" onClick={() => this.deleteRow()}>删除</Button>
-            </div>
-          </div>
-          <BootstrapTable data={this.state.producers} pagination options={this.options} selectRow={this.state.selectRowProp}>
+          <BootstrapTable data={this.state.producers} pagination options={this.options} selectRow={this.state.selectRowProp} deleteRow insertRow={ true }>
             <TableHeaderColumn dataField="supID" isKey className="idStyle" columnClassName="idStyle"></TableHeaderColumn>
-            <TableHeaderColumn dataField="supName" dataSort>供应商名称</TableHeaderColumn>
+            <TableHeaderColumn dataField="supName" dataSort tdStyle={ { color: '#009DDA',cursor:"pointer" } } >供应商名称</TableHeaderColumn>
             <TableHeaderColumn dataField="contact" dataSort>联系人</TableHeaderColumn>
             <TableHeaderColumn dataField="contact_info" dataSort>联系方式</TableHeaderColumn>
             <TableHeaderColumn dataField="level" dataSort>等级</TableHeaderColumn>
