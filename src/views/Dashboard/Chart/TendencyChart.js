@@ -6,7 +6,6 @@
 import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
 
-
 import HotChart from "./HotChart"
 
 
@@ -14,7 +13,8 @@ class TendencyChart extends Component{
     constructor(props){
         super(props)
         this.state = {
-            chartOption : this.getOption(this.initData(this.props.tendencyChartData))
+            chartOption : this.getOption(this.initData(this.props.tendencyChartData)),
+            hotChartData : this.props.hotChartData
         }
     }
     //初始化数据
@@ -111,7 +111,7 @@ class TendencyChart extends Component{
                                           style={{height: 350}} />
                         </div>
                         <div role="tabpanel" style={{width:"100%"}} className="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                            <HotChart hotChartData={this.props.hotChartData} />
+                            <HotChart hotChartData={this.state.hotChartData} />
                         </div>
                     </div>
                 </div>

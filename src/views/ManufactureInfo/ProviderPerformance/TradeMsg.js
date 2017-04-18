@@ -26,7 +26,6 @@ class TradeMsg extends Component{
                 <div className="x_title">
                     <h2>交易信息</h2>
                     <select name="" id="">
-                        <option value="0">按周</option>
                         <option value="0">按月</option>
                         <option value="0">按年</option>
                     </select>

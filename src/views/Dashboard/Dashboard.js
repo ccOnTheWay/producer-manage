@@ -5,11 +5,11 @@ import React, { Component } from 'react';
 
 import AddProvider from "./AddProvider"
 import PieChart from "./Chart/PieChart"
-import Breadcrumbs from "react-breadcrumbs";
+//import Breadcrumbs from "react-breadcrumbs";
 import BarChart from "./Chart/BarChart"
 
 import TendencyChart from "./Chart/TendencyChart"
-
+import 'whatwg-fetch';
 
 // 饼状图 柱状图数据
 const chartData = [

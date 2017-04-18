@@ -9,14 +9,15 @@ import 'whatwg-fetch';
 
 
 
+
 class ProviderInformation extends Component{
     constructor(props){
         super(props)
         this.state = {
             probiderMsg: {
                 basicMsg: {     //基本信息
-                    name: "贵州航天电器股份有限公司", // 供应商名称
-                    address: "贵州市**区111号", //供应商地址
+                    name: "**公司", // 供应商名称
+                    address: "*号", //供应商地址
                     postcode: 1111111,//邮编
                     type: "原厂" //供应商类型
                 },
@@ -47,102 +48,7 @@ class ProviderInformation extends Component{
             }
         }
     }
-    componentWillMount(){
-        /*var result = fetch('https://api.github.com',{mode: 'no-cors'})
-        result.then(function(response) {
-            console.log('response', response)
-            console.log('header', response.headers.get('Content-Type'))
-
-            return response.text()
-        }).then(function(text) {
-            console.log('got text', text)
-        }).catch(function(ex) {
-            console.log('failed', ex)
-        })*/
-        var result = fetch('http://op.juhe.cn/onebox/weather/query?cityname=%E6%B8%A9%E5%B7%9E&key=988133220d8fd9b30d81cf6ae1d8b4b2',{method:"GET", mode: 'cors',
-            cache: 'default'})
-        result.then(function(response) {
-            console.log('response', response)
-            console.log('header', response.headers.get('Content-Type'))
-            return response.text()
-        }).then(function(text) {
-            console.log('got text', text)
-        }).catch(function(ex) {
-            console.log('failed', ex)
-        })
-        //084272c282f092f2ee16282d05a554b2ss
-        // fetch("https://api.github.com/",{
-        //    method: "GET",
-        //     mode: 'no-cors',
-        //    /* body: JSON.stringify(
-        //              {"key":"084272c282f092f2ee16282d05a554b2",
-        //             "page":2,
-        //             "pagesize":10,
-        //             "sort":"asc",
-        //             "time": 1418745237}),*/
-        //   /*  headers: {
-        //        "Content-Type": "application/json"
-        //     }*/
-        //     //credentials: "same-origin"
-        // }).then(function(res) {
-        //     // res instanceof Response == true.
-        //     console.log(res)
-        //     if (res.type === 'opaque' || res.ok) {
-        //         res.json().then(function(data) {
-        //             console.log(data.entries);
-        //         });
-        //     } else {
-        //         console.log("Looks like the response wasn't perfect, got status", res.status);
-        //     }
-        // }, function(e) {
-        //     console.log("Fetch failed!", e);
-        // });
-           /* .then(function(response) {
-            return response.text().then(function(text) {
-                return text ? JSON.parse(text) : {}
-            })
-        }).then(function(json) {
-            console.log(json)
-        }).catch(function(ex) {
-            console.log('parsing failed', ex)
-        })*/
-        this.setState(
-            {
-                probiderMsg: {
-                    basicMsg: {     //基本信息
-                        name: "贵州航天电器股份有限公司", // 供应商名称
-                        address: "贵州市**区111号", //供应商地址
-                        postcode: 1111111,//邮编
-                        type: "原厂" //供应商类型
-                    },
-                    contactInfomation: { // 联系信息
-                        linkMan: "张三", //联系人
-                        linkManJob: "销售经理",  //联系人职务
-                        tel: 88888888, //电话号码（座机）
-                        faxNub: 89898989, //传真号
-                        phone: 156666666, //手机号
-                        email: "111111@cissdata.com",//邮箱
-                        qq: 1112233344, //qq
-                        firstTel: "手机", //首选联系方式
-                        qualityDepartment: "可靠性检测部",  //质量负责部门名称
-                        qualityLinkMan: "李四",   //质量负责部分联系人
-                        qualityJob: "质检经理", //质量负责部门联系人职位
-                        qualityTel: 1666666666    //质量负责部门联系方式
-                    },
-                    financialInformation: {
-                        accountTitle: "贵州航天电器股份有限公司", //账户名称
-                        address: "皮皮虾我们走",   //地址
-                        tel: 1999999999,   //电话
-                        taxNub: 1000000000111111,  //税号
-                        depositBank: "中国银行",  //开户银行
-                        bankAccount: 62001111111111111,  //银行账号
-                        registeredFund: 666, //注册资金
-                        paymentDate: 30  //付款周期
-                    }
-                }
-            }
-        )
-    }
+   
    
     render(){
         return (
@@ -307,6 +213,89 @@ class ProviderInformation extends Component{
         )
     }
     componentDidMount(){
+
+        fetch("http://192.168.56.1/cors.php").then(function(response) {
+            console.log('response', response);
+            console.log('header', response.headers.get('Content-Type'));
+            return response.text();
+        }).then(function(text) {
+            console.log(text);
+            this.setState(
+                {
+                    probiderMsg: {
+                        basicMsg: {     //基本信息
+                            name: "贵州航天电器股份有限公司", // 供应商名称
+                            address: "贵州市**区333号", //供应商地址
+                            postcode: 1111111,//邮编
+                            type: "原厂" //供应商类型
+                        },
+                        contactInfomation: { // 联系信息
+                            linkMan: "1111", //联系人
+                            linkManJob: "销售经理",  //联系人职务
+                            tel: 88888888, //电话号码（座机）
+                            faxNub: 89898989, //传真号
+                            phone: 156666666, //手机号
+                            email: "111111@cissdata.com",//邮箱
+                            qq: 1112233344, //qq
+                            firstTel: "手机", //首选联系方式
+                            qualityDepartment: "可靠性检测部",  //质量负责部门名称
+                            qualityLinkMan: "李四",   //质量负责部分联系人
+                            qualityJob: "质检经理", //质量负责部门联系人职位
+                            qualityTel: 1666666666    //质量负责部门联系方式
+                        },
+                        financialInformation: {
+                            accountTitle: "贵州航天电器股份有限公司", //账户名称
+                            address: "中国 * 贵州",   //地址
+                            tel: 1999999999,   //电话
+                            taxNub: 1000000000111111,  //税号
+                            depositBank: "中国银行",  //开户银行
+                            bankAccount: 62001111111111111,  //银行账号
+                            registeredFund: 666, //注册资金
+                            paymentDate: 30  //付款周期
+                        }
+                    }
+                }
+            )
+        }.bind(this)).catch(function(ex) {
+            console.log('failed', ex)
+        })
+
+        //084272c282f092f2ee16282d05a554b2ss
+        // fetch("https://api.github.com/",{
+        //    method: "GET",
+        //     mode: 'no-cors',
+        //    /* body: JSON.stringify(
+        //              {"key":"084272c282f092f2ee16282d05a554b2",
+        //             "page":2,
+        //             "pagesize":10,
+        //             "sort":"asc",
+        //             "time": 1418745237}),*/
+        //   /*  headers: {
+        //        "Content-Type": "application/json"
+        //     }*/
+        //     //credentials: "same-origin"
+        // }).then(function(res) {
+        //     // res instanceof Response == true.
+        //     console.log(res)
+        //     if (res.type === 'opaque' || res.ok) {
+        //         res.json().then(function(data) {
+        //             console.log(data.entries);
+        //         });
+        //     } else {
+        //         console.log("Looks like the response wasn't perfect, got status", res.status);
+        //     }
+        // }, function(e) {
+        //     console.log("Fetch failed!", e);
+        // });
+        /* .then(function(response) {
+         return response.text().then(function(text) {
+         return text ? JSON.parse(text) : {}
+         })
+         }).then(function(json) {
+         console.log(json)
+         }).catch(function(ex) {
+         console.log('parsing failed', ex)
+         })*/
 
 
     }
