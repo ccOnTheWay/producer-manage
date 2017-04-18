@@ -27,7 +27,7 @@ class AddProvider extends Component{
                     <div className="tile-stats" onClick={()=>location.hash = "/supplier_list"}>
                         <div className="icon"><i className="fa fa-plus-square-o"></i></div>
 
-                        <h3 style={{"lineHeight":"111px","color":"#73879C"}}>添加/删除供应商</h3>
+                        <h3 style={{"lineHeight":"111px","color":"#73879C","cursor":"pointer"}}>添加/删除供应商</h3>
 
                     </div>
                 </div>

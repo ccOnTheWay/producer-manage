@@ -32,9 +32,10 @@ class Header extends Component{
                 <ul className="nav navbar-nav navbar-right">
                   <div className="col-md-5 col-sm-5 col-xs-12 form-group pull-right nav_top_search">
                     <div className="input-group">
-                      <input type="text" className="form-control" placeholder="已管理厂家搜索" />
+                      <input type="text" className="form-control"  ref="searchValue" placeholder="
+输入厂家名称/产品类别/品牌名称进行搜索" />
                       <span className="input-group-btn">
-                        <button className="btn btn-default" type="button">搜索</button>
+                        <button onClick={()=>this.searchBtnClick()} className="btn btn-default" type="button">搜索</button>
                       </span>
                     </div>
                   </div>
@@ -46,13 +47,24 @@ class Header extends Component{
 
           )
     }
+    searchBtnClick(){
+        console.log(this.refs.searchValue.value)
+        var value = this.refs.searchValue.value ? this.refs.searchValue.value : "二极管" ;
+        this.setState({
+            topNavTitleNub : 3
+        });
+        location.hash = "#/search/" + value ;
+        // 接收 hash  this.state.params.searchItem
+    }
     componentWillMount (){
+
       Action.on('changeTopNavTitle',function(val){
         this.setState({
           topNavTitleNub : val
         })
       }.bind(this))
     }
+
 }
 
 

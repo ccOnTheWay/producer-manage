@@ -30,7 +30,7 @@ export default(
       <Route path="manufacture_info" name="manufacture_info" component={ManufactureInfo}/>
       <Route path="supplier_list" name="supplier_list" component={SupplierList}/>
       <Route path="priority_level" name="priority_level" component={PriorityLevel}/>
-      <Route path="search" name="search" component={Search}/>
+      <Route path="search/:searchItem" name="search" component={Search}/>
     </Route>
   </Router>
 );

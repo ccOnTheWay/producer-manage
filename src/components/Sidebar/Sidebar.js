@@ -6,6 +6,7 @@
 import userImg from '../../assets/img/img.jpg';
 import React, { Component } from 'react';
 import SlidebarMenu from "./Slidebar-menu"
+import logo from "../../assets/img/logo_ico.png"
 class Navigation extends Component {
     render(){
         return (
@@ -13,7 +14,7 @@ class Navigation extends Component {
             <div className="navigation col-md-3 left_col">
                 <div className="left_col scroll-view">
                     <div className="navbar nav_title" style={{border: 0}}>
-                        <a href="index.html" className="site_title"><i className="fa fa-paw"></i> <span>供应商管理</span></a>
+                        <a href="#/" className="site_title"><img width="30" height="30" style={{"margin":"0 10px"}} src={logo} alt="赛思库"/><span>CissData</span></a>
                     </div>
 
                     <div className="clearfix"></div>
