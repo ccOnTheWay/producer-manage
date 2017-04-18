@@ -6,9 +6,10 @@
 
 import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
-import Tabel from "../../../components/Tabel/Tabel"
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import "react-bootstrap-table/dist/react-bootstrap-table-all.min.css"
 
-
+import faker from 'faker';
 //<br />STMicroelectronic<br />LQFP-48 工业级<br />210400230011r IC MCU 32BIT 64KB FLASH 48LQFP
 
 class TradeMsg extends Component{
@@ -140,9 +141,7 @@ class GaugeChart extends Component{
     
 }
 
-import ReactTable from 'react-table';
-import 'react-table/react-table.css';
-import faker from 'faker';
+
 
 
 
@@ -156,32 +155,6 @@ class TradeMsgTab extends Component {
     constructor(props){
         super(props)
         this.state = ({
-            styles : {
-            primary:{
-                textAlign:'center'
-            }
-            },
-            columns : [
-                {
-                    header: '序号',
-                    accessor: 'serialNub'
-                }, {
-                    header: '产品编号',
-                    accessor: "productNub"
-                }, {
-                    header: '产品类型',
-                    accessor: 'productType'
-                }, {
-                    header: '订单编号',
-                    accessor: 'orderNub'
-                }, {
-                    header: '订单单价（元）',
-                    accessor: 'orderPrice'
-                }, {
-                    header: '订单日期',
-                    accessor: 'orderDate'
-                }
-            ],
             TradeMsgTabData:[]
         })
 
@@ -193,6 +166,7 @@ class TradeMsgTab extends Component {
          productNub: faker.random.number(), // 产品编号
          productType:faker.name.findName(),  //产品类型
          orderNub: faker.random.number(),//订单编号
+         orderState:  //订单状态
          orderPrice:faker.random.number(),  //订单单价（元）
          orderDate:faker.date.weekday()//订单日期
          }
@@ -205,9 +179,9 @@ class TradeMsgTab extends Component {
             data.push({
                 serialNub: i,
                 productNub: faker.random.number(),
-                vendor: faker.random.number(),
                 productType:faker.name.findName(),
                 orderNub: faker.random.number(),
+                orderState:faker.name.findName(),
                 orderPrice:faker.random.number(),
                 orderDate:faker.date.weekday()
             })
@@ -218,20 +192,15 @@ class TradeMsgTab extends Component {
     }
     render() {
         return (
-                <ReactTable
-                    className="dataTables_wrapper table table-bordered"
-                    data={this.state.TradeMsgTabData}
-                    columns={this.state.columns}
-                    defaultPageSize={10}
-                    nextText={'下一页'}
-                    previousText={'上一页'}
-                    loadingText={'正在加载'}
-                    noDataText={'没有下一页'}
-                    pageText={'页码'}
-                    ofText={'共'}
-                    rowsText={'条每行'}
-                    style={this.state.styles.primary}
-                />
+            <BootstrapTable data={this.state.TradeMsgTabData} pagination >
+                <TableHeaderColumn dataField="serialNub" isKey  dataSort>序号</TableHeaderColumn>
+                <TableHeaderColumn dataField="productNub" dataSort>产品编号</TableHeaderColumn>
+                <TableHeaderColumn dataField="productType" dataSort>产品类型</TableHeaderColumn>
+                <TableHeaderColumn dataField="orderNub" dataSort>订单编号</TableHeaderColumn>
+                <TableHeaderColumn dataField="orderPrice" dataSort>订单状态</TableHeaderColumn>
+                <TableHeaderColumn dataField="orderDate" dataSort>订单单价</TableHeaderColumn>
+                <TableHeaderColumn dataField="orderDate" dataSort>订单日期</TableHeaderColumn>
+            </BootstrapTable>
         )
     }
 }
